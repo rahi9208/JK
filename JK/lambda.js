@@ -1,16 +1,7 @@
 let AWS = require('aws-sdk');
-exports.handler = function (event, context, callback) {
-
-	console.log(event);
-
+let firebase = require('firebase');
+exports.handler = function(event, context, callback) {
 
 
-	callback(null, {
-		"isBase64Encoded": 1,
-		"statusCode": 200,
-		"headers": {
-			"headerName": "headerValue"
-		},
-		"body": "..."
-	});
+	callback(null,'Successfully executed');
 }
