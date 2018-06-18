@@ -1,7 +1,9 @@
 {
-  "name": "JK",
+  "name": "jk",
   "version": "1.0.0",
   "dependencies": {
-    "aws-sdk": "2.176.0"
+    "aws-sdk": "2.176.0",
+    "twit": "2.2.10",
+    "firebase": "5.0.4"
   }
 }
