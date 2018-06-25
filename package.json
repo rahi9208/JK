@@ -1,14 +1,7 @@
 {
-  "name": "JK",
+  "name": "jk",
   "version": "1.0.0",
   "dependencies": {
-    "aws-sdk": "2.176.0",
-    "random": "2.0.12",
-    "firebase": "5.0.4",
-    "aws-xray-sdk": "1.2.0",
-    "axios": "0.18.0",
-    "jszip": "3.1.5",
-    "jquery": "3.3.1",
-    "lodash": "4.17.10"
+    "aws-sdk": "2.176.0"
   }
 }
