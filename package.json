@@ -2,7 +2,6 @@
   "name": "TEST",
   "version": "1.0.0",
   "dependencies": {
-    "aws-sdk": "2.176.0",
-    "uuid": "3.3.2"
+    "aws-sdk": "2.176.0"
   }
 }
