@@ -1,5 +1,20 @@
 let AWS = require('aws-sdk');
-exports.handler = function(event, context, callback) {
- 
-    callback(null,'Successfully executed');
+const ddb = new AWS.DynamoDB.DocumentClient();
+let uuid = require('uuid');
+
+exports.handler = function (event, context, callback) {
+
+    let id = uuid.v4();
+
+    ddb.put({
+        TableName: 'SigmaProjects',
+        Item: {
+            'name': event.name,
+            'id': id,
+            'description': event.description,
+            'functions':event.functions
+        }
+    }, function (err, data) {
+        callback(err, 'Successfully executed');
+    });
 }
