@@ -2,6 +2,7 @@ let AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = function (event, context, callback) {
+    
     let response = {
         "statusCode": 200,
         "headers": {
@@ -13,15 +14,13 @@ exports.handler = function (event, context, callback) {
     let username = event.queryStringParameters.username;
 
     ddb.query({
-        TableName: 'SigmaProjects',
+        TableName: 'SigmaUserProjects',
         ExpressionAttributeValues: { ':username': username },
-        KeyConditionExpression: 'id = :username',
+        KeyConditionExpression: 'username = :username',
     }, function (err, data) {
         if (!err) {
             response.body = JSON.stringify(data.Items);
         }
         callback(err, response);
     });
-
-
 }

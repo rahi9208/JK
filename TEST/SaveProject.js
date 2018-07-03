@@ -5,17 +5,19 @@ let uuid = require('uuid');
 exports.handler = function (event, context, callback) {
 
     let projectId = event.projectId || uuid.v4();
-    
+
     ddb.put({
         TableName: 'SigmaUserProjects',
         Item: {
             'name': event.name,
             'username': event.username,
-            'projectId': event.projectId,
+            'projectId': projectId,
             'description': event.description,
             'functions': event.functions
         }
     }, function (err, data) {
-        callback(err, 'Successfully executed');
+        callback(err, {
+            projectId 
+        });
     });
 }
