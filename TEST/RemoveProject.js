@@ -17,7 +17,7 @@ exports.handler = function (event, context, callback) {
 
         ddb.delete({
             TableName: 'SigmaUserProjects',
-            Key: { username, 'projectId': projectId }
+            Key: { username, projectId }
         }, function (err, data) {
             if (!err) {
                 response.body = "Successfully deleted " + projectId;
