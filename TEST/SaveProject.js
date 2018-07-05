@@ -15,9 +15,11 @@ exports.handler = function (event, context, callback) {
             "body": ""
         };
 
-        let createdTime = event.createdTime || new Date().getTime();
+        let project = JSON.parse(event.body);
+
+        let createdTime = project.createdTime || new Date().getTime();
         let updatedTime = new Date().getTime();
-        let projectId = event.projectId || (createdTime + "-" + uuid.v4());
+        let projectId = project.projectId || (createdTime + "-" + uuid.v4());
 
         ddb.put({
             TableName: 'SigmaUserProjects',
