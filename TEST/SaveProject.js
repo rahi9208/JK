@@ -30,10 +30,12 @@ exports.handler = function (event, context, callback) {
                 'description': event.description,
                 'functions': event.functions,
                 createdTime,
-                updatedTime
+                updatedTime,
+                region:event.region
             }
         }, function (err, data) {
             if (err) {
+                console.error("Error in saving project",err);
                 response.statusCode = 500;
                 response.body = err.message;
             } else {

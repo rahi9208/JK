@@ -14,7 +14,7 @@ exports.handler = function (event, context, callback) {
             "body": "..."
         };
 
-        let projectId = event.queryStringParameters.projectId;
+        let projectId = event.queryStringParameters && event.queryStringParameters.projectId;
 
         if (!projectId) {
             console.log("Searching all projects for", username);
