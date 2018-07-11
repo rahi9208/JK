@@ -24,21 +24,22 @@ exports.handler = function (event, context, callback) {
         ddb.put({
             TableName: 'SigmaUserProjects',
             Item: {
-                'name': event.name,
+                'name': project.name,
                 username,
                 projectId,
-                'description': event.description,
-                'functions': event.functions,
+                'description': project.description,
+                'functions': project.functions,
                 createdTime,
                 updatedTime,
-                region:event.region
+                region: project.region
             }
         }, function (err, data) {
             if (err) {
-                console.error("Error in saving project",err);
+                console.error("Error in saving project of", username, err);
                 response.statusCode = 500;
                 response.body = err.message;
             } else {
+                console.log("Successfully saved project of %s with id %s", username, projectId);
                 response.body = JSON.stringify({
                     projectId
                 });
