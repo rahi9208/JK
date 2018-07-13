@@ -27,7 +27,7 @@ exports.handler = function (event, context, callback) {
                 'name': project.name,
                 username,
                 projectId,
-                'description': project.description,
+                'description': project.description || " ",
                 'functions': project.functions,
                 createdTime,
                 updatedTime,
