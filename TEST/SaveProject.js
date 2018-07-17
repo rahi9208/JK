@@ -44,7 +44,7 @@ exports.handler = function (event, context, callback) {
                     projectId
                 });
             }
-            callback(err, response);
+            callback(null, response);
         });
     })
 }
